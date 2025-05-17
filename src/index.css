@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 25.1%; /* Custom Black/Dark Gray #404040 */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 0 0% 25.1%; /* Custom Black/Dark Gray #404040 */
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 0 0% 25.1%; /* Custom Black/Dark Gray #404040 */
+
+    --primary: 220 55% 47%; /* Custom Blue #375fbb */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 220 13% 91%; /* Light Gray - can be adjusted if needed */
+    --secondary-foreground: 0 0% 25.1%; /* Custom Black/Dark Gray #404040 */
+
+    --muted: 220 13% 91%; /* Light Gray - can be adjusted if needed */
+    --muted-foreground: 0 0% 40%; /* Muted Gray, derived from #404040 */
+
+    --accent: 220 55% 90%; /* Lighter version of custom blue for accents */
+    --accent-foreground: 220 55% 30%; /* Darker version of custom blue for accent text */
+
+    --destructive: 0 84.2% 60.2%; /* Red - kept for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White */
+
+    --border: 220 13% 85%; /* Lighter Gray Border - can be adjusted */
+    --input: 220 13% 85%; /* Lighter Gray Input Border - can be adjusted */
+    --ring: 220 55% 47%; /* Custom Blue #375fbb for focus rings */
+
+    --radius: 0.75rem; 
+  }
+
+  .dark {
+    --background: 0 0% 15%; /* Dark background for dark mode */
+    --foreground: 0 0% 95%; /* Light foreground for dark mode */
+
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 220 55% 55%; /* Slightly lighter custom blue for dark mode */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 20%; 
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 220 55% 30%; 
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 220 55% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+  h1 {
+    @apply text-4xl lg:text-5xl;
+  }
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+  section {
+    @apply py-16 lg:py-24;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
