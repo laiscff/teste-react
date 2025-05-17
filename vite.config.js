@@ -134,39 +134,40 @@ window.fetch = function(...args) {
 `;
 
 const addTransformIndexHtml = {
-	name: 'add-transform-index-html',
-	transformIndexHtml(html) {
-		return {
-			html,
-			tags: [
-				{
-					tag: 'script',
-					attrs: { type: 'module' },
-					children: configHorizonsRuntimeErrorHandler,
-					injectTo: 'head',
-				},
-				{
-					tag: 'script',
-					attrs: { type: 'module' },
-					children: configHorizonsViteErrorHandler,
-					injectTo: 'head',
-				},
-				{
-					tag: 'script',
-					attrs: {type: 'module'},
-					children: configHorizonsConsoleErrroHandler,
-					injectTo: 'head',
-				},
-				{
-					tag: 'script',
-					attrs: { type: 'module' },
-					children: configWindowFetchMonkeyPatch,
-					injectTo: 'head',
-				},
-			],
-		};
-	},
+  name: 'add-transform-index-html',
+  transformIndexHtml(html) {
+    return {
+      html,  // mantém o conteúdo original, que já inclui o base configurado
+      tags: [
+        {
+          tag: 'script',
+          attrs: { type: 'module' },
+          children: configHorizonsRuntimeErrorHandler,
+          injectTo: 'head',
+        },
+        {
+          tag: 'script',
+          attrs: { type: 'module' },
+          children: configHorizonsViteErrorHandler,
+          injectTo: 'head',
+        },
+        {
+          tag: 'script',
+          attrs: { type: 'module' },
+          children: configHorizonsConsoleErrroHandler,
+          injectTo: 'head',
+        },
+        {
+          tag: 'script',
+          attrs: { type: 'module' },
+          children: configWindowFetchMonkeyPatch,
+          injectTo: 'head',
+        },
+      ],
+    };
+  },
 };
+
 
 console.warn = () => {};
 
@@ -184,7 +185,7 @@ logger.error = (msg, options) => {
 export default defineConfig({
 	customLogger: logger,
 	plugins: [react(), addTransformIndexHtml],
-	base: "/teste-react",
+	base: "/teste-react/",
 	server: {
 		cors: true,
 		headers: {

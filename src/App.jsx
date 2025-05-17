@@ -28,7 +28,7 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/teste-react" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/prototypes" element={<PrototypesPage />} />
@@ -41,7 +41,7 @@ const AnimatedRoutes = () => {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/teste-react">
       <div className="flex flex-col min-h-screen bg-background">
         <Navbar />
         <Suspense fallback={<PageLoader />}>
